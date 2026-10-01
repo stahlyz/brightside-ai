@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<!--
+=====================================================================
+  SITE PLACEHOLDERS - swap these tokens before launch
+  (search the files for the token text to find every use)
+
+  BUSINESS_NAME  = "Brightside AI"   (name is SET; no longer a placeholder)
+      Appears in: <title>, header logo wordmark, footer, form subject
+      (also set in script.js as BUSINESS_NAME).
+  CONTACT_EMAIL  = set ONLY in script.js (single source of truth)
+      While it is still the placeholder value, the page shows
+      "Email details coming soon" and hides the inquiry form and every
+      email link. Set a real address in script.js to turn them on.
+      See README.md.
+  BOOKING_LINK   = "#contact"
+      Replace "#contact" with a real scheduling URL when available.
+      Appears on every "Book a free 20-minute discovery call" button.
+  No domain has been chosen; do not add one until confirmed.
+=====================================================================
+-->
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Brightside AI | AI consulting for small businesses, schools, and nonprofits</title>
+  <meta name="description" content="Practical, safe AI consulting for small businesses, schools, and nonprofits. AI strategy and implementation, with a security mindset, from Josh Whitaker.">
+  <meta name="theme-color" content="#060b16">
+  <link rel="stylesheet" href="styles.css">
+  <script src="script.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to main content</a>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a class="logo" href="#top" aria-label="Brightside AI home"><svg class="logo-mark" width="22" height="22" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="currentColor"/><g stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 2.5v3M12 18.5v3M2.5 12h3M18.5 12h3M5.3 5.3l2.1 2.1M16.6 16.6l2.1 2.1M18.7 5.3l-2.1 2.1M7.4 16.6l-2.1 2.1"/></g></svg><span class="logo-text">Brightside<span class="logo-ai"> AI</span></span></a>
+      <nav aria-label="Main">
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-list">Menu</button>
+        <ul id="nav-list" class="nav-list">
+          <li><a href="#about">About</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#who">Who I help</a></li>
+          <li><a class="nav-cta" href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main">
+    <section class="hero" id="top" aria-labelledby="hero-title">
+      <div class="container hero-inner">
+        <p class="eyebrow">AI strategy and implementation, with a security mindset.</p>
+        <h1 id="hero-title">AI consulting for small businesses, schools, and nonprofits. Practical, safe, and built to fit your budget.</h1>
+        <div class="button-row">
+          <a class="btn btn-primary" href="#contact" data-booking>Book a free 20-minute discovery call</a>
+          <a class="btn btn-secondary" href="#services">See services</a>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section" aria-labelledby="about-title">
+      <div class="container narrow">
+        <h2 id="about-title">About</h2>
+        <p class="lead">Brightside AI helps small businesses, schools, and nonprofits put AI to work, from everyday tools to custom automation, in a way that's practical, safe, and affordable.</p>
+        <p>I'm Josh Whitaker, an independent AI consultant. I'll help you figure out where AI fits, set it up, and train your team to use it with confidence.</p>
+      </div>
+    </section>
+
+    <section id="services" class="section section-alt" aria-labelledby="services-title">
+      <div class="container">
+        <h2 id="services-title">Services</h2>
+        <p class="section-intro">Plain-English help, scoped to what your team actually needs.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>AI readiness and safe-use assessment</h3>
+            <p>A clear look at where AI could help your team, where it shouldn't be used, and what to put in place first so you adopt it safely.</p>
+          </article>
+          <article class="card">
+            <h3>Workflow automation</h3>
+            <p>Email, intake, reporting, and approvals: the repetitive work that eats your week, automated with a person kept in the loop for anything that matters.</p>
+          </article>
+          <article class="card">
+            <h3>AI acceptable-use and data-protection policy</h3>
+            <p>A practical policy for staff that explains what tools are okay, what data stays out of them, and who to ask, written so people will actually read it.</p>
+          </article>
+        </div>
+        <aside class="pilot" aria-labelledby="pilot-title">
+          <span class="badge">Pilot offering</span>
+          <h3 id="pilot-title">Fixed-price pilot</h3>
+          <p>I'm planning to offer a small, fixed-price pilot so you can try one automation with a clear scope before committing to more. Details are still being finalized &mdash; ask on a discovery call.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="who" class="section" aria-labelledby="who-title">
+      <div class="container">
+        <h2 id="who-title">Who I help</h2>
+        <p class="section-intro">I work with open-source tools and tight budgets, so you don't need enterprise spending to get real value.</p>
+        <div class="cards">
+          <article class="card">
+            <h3>Small businesses</h3>
+            <p>Owner-run teams buried in email, scheduling, and paperwork. We find the few tasks worth automating and leave the rest alone.</p>
+          </article>
+          <article class="card">
+            <h3>Schools</h3>
+            <p>Districts and schools that need to understand AI, protect student and staff data, and set sensible guidelines.</p>
+          </article>
+          <article class="card">
+            <h3>Nonprofits</h3>
+            <p>Mission-driven teams with small staffs and limited funds. Practical, low-cost options that free up time for the work that matters.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+
+
+    <section id="contact" class="section section-alt" aria-labelledby="contact-title">
+      <div class="container contact-grid" id="contact-grid">
+        <div>
+          <h2 id="contact-title">Contact</h2>
+          <p>Tell me a little about your team and what's eating your week. The first call is free, 20 minutes, and no pressure.</p>
+          <p><a class="btn btn-primary" href="#contact" data-booking>Book a free 20-minute discovery call</a></p>
+          <p data-email-soon>Email details coming soon.</p>
+          <p data-email-block hidden>Or email: <a data-email></a></p>
+        </div>
+        <form class="contact-form" id="inquiry-form" method="post" enctype="text/plain" hidden>
+          <!-- Static form: opens the visitor's email app. No backend. Hidden until CONTACT_EMAIL is set in script.js, which also sets the mailto action. -->
+          <div class="field">
+            <label for="name">Your name</label>
+            <input id="name" name="Name" type="text" autocomplete="name" required>
+          </div>
+          <div class="field">
+            <label for="email">Your email</label>
+            <input id="email" name="Email" type="email" autocomplete="email" required>
+          </div>
+          <div class="field">
+            <label for="org">Organization type</label>
+            <select id="org" name="Organization type">
+              <option>Small business</option>
+              <option>School</option>
+              <option>Nonprofit</option>
+              <option>Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label for="message">How can I help?</label>
+            <textarea id="message" name="Message" rows="5" required></textarea>
+          </div>
+          <button class="btn btn-primary" type="submit">Send inquiry</button>
+          <p class="form-note">This opens your email app with your message ready to send. Nothing is stored on this site.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <p>&copy; <span id="year">2026</span> Brightside AI. Josh Whitaker.</p>
+      <p><span data-email-block hidden><a data-email></a> &middot; </span><a href="#top">Back to top</a></p>
+    </div>
+  </footer>
+</body>
+</html>
