@@ -116,6 +116,21 @@ h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 
 .narrow > p { color: var(--text); }
 .byline { color: var(--accent-strong) !important; font-weight: 600; }
 
+/* About Me */
+.about-me-section { padding-top: 0; }
+.about-me { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
+.about-me-photo { margin: 0; }
+.about-me-photo img {
+  display: block; width: 100%; aspect-ratio: 4 / 5; object-fit: cover; border-radius: 24px;
+  border: 1px solid rgba(34, 211, 238, .45);
+  box-shadow: 0 0 0 6px rgba(34, 211, 238, .06), 0 24px 60px -20px rgba(34, 211, 238, .4);
+  background: var(--surface);
+}
+.about-me-text p { font-size: 1.15rem; color: var(--text); margin: 0; max-width: 62ch; }
+.about-me.no-photo { grid-template-columns: 1fr; }
+.about-me.no-photo .about-me-photo { display: none; }
+.about-me.no-photo .about-me-text { max-width: 780px; }
+
 /* Cards */
 .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(270px, 1fr)); gap: 1.5rem; }
 .card, .pilot, .contact-form {
@@ -178,6 +193,8 @@ select option { background: #0a1222; color: var(--heading); }
   .nav-list a { display: block; padding: .8rem 0; font-size: 1.05rem; }
   .nav-list .nav-cta { text-align: center; margin-top: .6rem; }
   .contact-grid { grid-template-columns: 1fr; }
+  .about-me { grid-template-columns: 1fr; }
+  .about-me-photo { max-width: 320px; }
   .container { width: min(1120px, 100% - 2.5rem); }
   .card, .pilot, .contact-form { padding: 1.5rem; }
 }

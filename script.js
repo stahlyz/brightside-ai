@@ -43,11 +43,16 @@ document.addEventListener("DOMContentLoaded", () => {
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
+  // About Me photo: hide the slot cleanly if the image is missing or fails to load
+  const aboutMe = document.querySelector(".about-me");
+  const photo = aboutMe && aboutMe.querySelector("img");
+  if (photo && photo.complete && photo.naturalWidth === 0) aboutMe.classList.add("no-photo");
+
   // Subtle fade-in on scroll (progressive enhancement; skipped for reduced motion)
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if ("IntersectionObserver" in window && !reduceMotion) {
     const targets = document.querySelectorAll(
-      ".section h2, .section-intro, .section .lead, .card, .pilot, .contact-form, .narrow > p"
+      ".section h2, .section-intro, .section .lead, .card, .pilot, .contact-form, .narrow > p, .about-me-photo, .about-me-text"
     );
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {
