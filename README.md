@@ -14,5 +14,4 @@ While it is still the placeholder value, the page shows "Email details coming so
 
 ## Other settings (in `script.js`)
 
-- `BOOKING_LINK`: where the "Book a free 20-minute discovery call" buttons go (currently `#contact`). Replace with a scheduling URL when you have one.
 - `BUSINESS_NAME`: used in the inquiry email subject.

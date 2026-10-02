@@ -3,7 +3,6 @@
 // shows "Email details coming soon" and hides all email links and the inquiry form.
 const PLACEHOLDER_EMAIL = "hello@example.com";
 const CONTACT_EMAIL = "hello@example.com";
-const BOOKING_LINK = "#contact";
 const BUSINESS_NAME = "Brightside AI";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -24,7 +23,6 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   // Apply placeholder values
-  document.querySelectorAll("[data-booking]").forEach((a) => a.setAttribute("href", BOOKING_LINK));
   const emailReady = !!CONTACT_EMAIL && CONTACT_EMAIL !== PLACEHOLDER_EMAIL;
   document.querySelectorAll("[data-email]").forEach((a) => {
     if (!emailReady) return;
