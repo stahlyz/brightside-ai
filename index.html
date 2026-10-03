@@ -5,12 +5,10 @@
   (search the files for the token text to find every use)
 
   BUSINESS_NAME  = "Brightside AI"   (name is SET; no longer a placeholder)
-      Appears in: <title>, header logo wordmark, footer, form subject
-      (also set in script.js as BUSINESS_NAME).
-  CONTACT_EMAIL  = set ONLY in script.js (single source of truth)
-      While it is still the placeholder value, the page shows
-      "Email details coming soon" and hides the inquiry form and every
-      email link. Set a real address in script.js to turn them on.
+      Appears in: <title>, header logo wordmark, footer.
+  WEB3FORMS_ACCESS_KEY = set ONLY in script.js (public by design)
+      The contact form posts to Web3Forms; the destination inbox is
+      configured in the Web3Forms dashboard, not on this page.
       See README.md.
   No domain has been chosen; do not add one until confirmed.
 =====================================================================
@@ -117,38 +115,29 @@
 
 
     <section id="contact" class="section section-alt" aria-labelledby="contact-title">
-      <div class="container contact-grid" id="contact-grid">
+      <div class="container contact-grid">
         <div>
           <h2 id="contact-title">Contact</h2>
           <p>Tell me a little about your team and what's eating your week. No pressure.</p>
-          <p data-email-soon>Email details coming soon.</p>
-          <p data-email-block hidden>Or email: <a data-email></a></p>
         </div>
-        <form class="contact-form" id="inquiry-form" method="post" enctype="text/plain" hidden>
-          <!-- Static form: opens the visitor's email app. No backend. Hidden until CONTACT_EMAIL is set in script.js, which also sets the mailto action. -->
+        <form class="contact-form" id="inquiry-form" method="post" novalidate>
+          <input type="hidden" name="access_key" value="">
+          <input type="hidden" name="subject" value="New inquiry from Brightside AI website">
+          <input type="checkbox" name="botcheck" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="field">
             <label for="name">Your name</label>
-            <input id="name" name="Name" type="text" autocomplete="name" required>
+            <input id="name" name="name" type="text" autocomplete="name" required>
           </div>
           <div class="field">
             <label for="email">Your email</label>
-            <input id="email" name="Email" type="email" autocomplete="email" required>
-          </div>
-          <div class="field">
-            <label for="org">Organization type</label>
-            <select id="org" name="Organization type">
-              <option>Small business</option>
-              <option>School or university</option>
-              <option>Nonprofit</option>
-              <option>Other</option>
-            </select>
+            <input id="email" name="email" type="email" autocomplete="email" required>
           </div>
           <div class="field">
             <label for="message">How can I help?</label>
-            <textarea id="message" name="Message" rows="5" required></textarea>
+            <textarea id="message" name="message" rows="5" required></textarea>
           </div>
           <button class="btn btn-primary" type="submit">Send inquiry</button>
-          <p class="form-note">This opens your email app with your message ready to send. Nothing is stored on this site.</p>
+          <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
         </form>
       </div>
     </section>
@@ -157,7 +146,7 @@
   <footer class="site-footer">
     <div class="container footer-inner">
       <p>&copy; <span id="year">2026</span> Brightside AI. Joshua Whitaker.</p>
-      <p><span data-email-block hidden><a data-email></a> &middot; </span><a href="#top">Back to top</a></p>
+      <p><a href="#top">Back to top</a></p>
     </div>
   </footer>
 </body>

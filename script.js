@@ -1,8 +1,7 @@
-// Placeholders: keep in sync with the comment block at the top of index.html
-// Single place to set the contact email. While it equals PLACEHOLDER_EMAIL, the page
-// shows "Email details coming soon" and hides all email links and the inquiry form.
-const PLACEHOLDER_EMAIL = "hello@example.com";
-const CONTACT_EMAIL = "hello@example.com";
+// Web3Forms public access key for the contact form (public by design; the destination
+// inbox is configured in the Web3Forms dashboard). Change it here only. See README.md.
+const WEB3FORMS_ACCESS_KEY = "ae154638-5126-4d17-b209-c0dcd65b213b";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const BUSINESS_NAME = "Brightside AI";
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -22,22 +21,6 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Apply placeholder values
-  const emailReady = !!CONTACT_EMAIL && CONTACT_EMAIL !== PLACEHOLDER_EMAIL;
-  document.querySelectorAll("[data-email]").forEach((a) => {
-    if (!emailReady) return;
-    a.setAttribute("href", "mailto:" + CONTACT_EMAIL);
-    a.textContent = CONTACT_EMAIL;
-  });
-  document.querySelectorAll("[data-email-block]").forEach((el) => { el.hidden = !emailReady; });
-  document.querySelectorAll("[data-email-soon]").forEach((el) => { el.hidden = emailReady; });
-  const formEl = document.getElementById("inquiry-form");
-  if (formEl) {
-    formEl.hidden = !emailReady;
-    if (emailReady) formEl.setAttribute("action", "mailto:" + CONTACT_EMAIL);
-  }
-  const grid = document.getElementById("contact-grid");
-  if (grid) grid.classList.toggle("no-form", !emailReady);
   const y = document.getElementById("year");
   if (y) y.textContent = new Date().getFullYear();
 
@@ -70,23 +53,53 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   }
 
-  // Mailto-based form (no backend)
+  // Contact form: submit to Web3Forms via fetch
   const form = document.getElementById("inquiry-form");
   if (form) {
-    form.addEventListener("submit", (e) => {
+    const keyInput = form.querySelector('input[name="access_key"]');
+    if (keyInput) keyInput.value = WEB3FORMS_ACCESS_KEY;
+    const button = form.querySelector('button[type="submit"]');
+    const status = document.getElementById("form-status");
+    const idleLabel = button ? button.textContent : "";
+    const setStatus = (kind, text) => {
+      if (!status) return;
+      status.className = "form-status" + (kind ? " is-" + kind : "");
+      status.textContent = text;
+    };
+    let sending = false;
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
-      if (!emailReady) return;
-      const d = new FormData(form);
-      const body = [
-        "Name: " + d.get("Name"),
-        "Email: " + d.get("Email"),
-        "Organization type: " + d.get("Organization type"),
-        "",
-        d.get("Message"),
-      ].join("\n");
-      const subject = "Inquiry from " + d.get("Name") + " (" + BUSINESS_NAME + " site)";
-      window.location.href =
-        "mailto:" + CONTACT_EMAIL + "?subject=" + encodeURIComponent(subject) + "&body=" + encodeURIComponent(body);
+      if (sending) return;
+      if (!form.checkValidity()) {
+        setStatus("", "");
+        form.reportValidity();
+        return;
+      }
+      sending = true;
+      button.disabled = true;
+      button.textContent = "Sending...";
+      setStatus("", "");
+      try {
+        const res = await fetch(WEB3FORMS_ENDPOINT, {
+          method: "POST",
+          headers: { Accept: "application/json" },
+          body: new FormData(form),
+        });
+        const data = await res.json();
+        if (res.ok && data && data.success) {
+          form.reset();
+          if (keyInput) keyInput.value = WEB3FORMS_ACCESS_KEY;
+          setStatus("success", "Thanks, your message was sent. I'll get back to you soon.");
+        } else {
+          setStatus("error", "Something went wrong. Please try again in a moment.");
+        }
+      } catch (err) {
+        setStatus("error", "Something went wrong. Please try again in a moment.");
+      } finally {
+        sending = false;
+        button.disabled = false;
+        button.textContent = idleLabel;
+      }
     });
   }
 });
