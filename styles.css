@@ -126,7 +126,8 @@ h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 
   box-shadow: 0 0 0 6px rgba(34, 211, 238, .06), 0 24px 60px -20px rgba(34, 211, 238, .4);
   background: var(--surface);
 }
-.about-me-text p { font-size: 1.15rem; color: var(--text); margin: 0; max-width: 62ch; }
+.about-me-text p { font-size: 1.15rem; color: var(--text); margin: 0 0 1.1rem; max-width: 62ch; }
+.about-me-text p:last-child { margin-bottom: 0; }
 .about-me.no-photo { grid-template-columns: 1fr; }
 .about-me.no-photo .about-me-photo { display: none; }
 .about-me.no-photo .about-me-text { max-width: 780px; }
