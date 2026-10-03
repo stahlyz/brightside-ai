@@ -50,7 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   if ("IntersectionObserver" in window && !reduceMotion) {
     const targets = document.querySelectorAll(
-      ".section h2, .section-intro, .section .lead, .card, .pilot, .contact-form, .narrow > p, .about-me-photo, .about-me-text"
+      ".section h2, .section-intro, .section .lead, .card, .pilot, .contact-form, .narrow > p, .about-me-photo, .about-me-text p"
     );
     const io = new IntersectionObserver((entries) => {
       entries.forEach((en) => {

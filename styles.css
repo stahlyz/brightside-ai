@@ -117,7 +117,6 @@ h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 
 .byline { color: var(--accent-strong) !important; font-weight: 600; }
 
 /* About Me */
-.about-me-section { padding-top: 0; }
 .about-me { display: grid; grid-template-columns: minmax(240px, 380px) 1fr; gap: clamp(2rem, 5vw, 4.5rem); align-items: center; }
 .about-me-photo { margin: 0; }
 .about-me-photo img {
@@ -126,7 +125,8 @@ h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 
   box-shadow: 0 0 0 6px rgba(34, 211, 238, .06), 0 24px 60px -20px rgba(34, 211, 238, .4);
   background: var(--surface);
 }
-.about-me-text p { font-size: 1.15rem; color: var(--text); margin: 0 0 1.1rem; max-width: 62ch; }
+.about-me-text p { font-size: 1.1rem; color: var(--text); margin: 0 0 1.1rem; max-width: 62ch; }
+.about-me-text .lead { font-size: 1.35rem; line-height: 1.5; color: var(--heading); font-weight: 500; margin-bottom: 1.4rem; }
 .about-me-text p:last-child { margin-bottom: 0; }
 .about-me.no-photo { grid-template-columns: 1fr; }
 .about-me.no-photo .about-me-photo { display: none; }
