@@ -112,7 +112,6 @@ a:hover { color: #fff; }
 h2 { font-size: clamp(1.9rem, 4vw, 2.9rem); color: var(--heading); margin: 0 0 1.25rem; line-height: 1.15; letter-spacing: -.025em; font-weight: 800; }
 h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 1.3; letter-spacing: -.01em; }
 .section-intro { color: var(--muted); font-size: 1.15rem; max-width: 720px; margin: 0 0 3rem; }
-.lead { font-size: 1.4rem; line-height: 1.5; color: var(--heading); font-weight: 500; margin: 0 0 1.5rem; }
 .narrow > p { color: var(--text); }
 .byline { color: var(--accent-strong) !important; font-weight: 600; }
 
@@ -126,7 +125,6 @@ h3 { color: var(--heading); margin: 0 0 .6rem; font-size: 1.25rem; line-height: 
   background: var(--surface);
 }
 .about-me-text p { font-size: 1.1rem; color: var(--text); margin: 0 0 1.1rem; max-width: 62ch; }
-.about-me-text .lead { font-size: 1.35rem; line-height: 1.5; color: var(--heading); font-weight: 500; margin-bottom: 1.4rem; }
 .about-me-text p:last-child { margin-bottom: 0; }
 .about-me.no-photo { grid-template-columns: 1fr; }
 .about-me.no-photo .about-me-photo { display: none; }
